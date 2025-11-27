@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mascotas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            background: linear-gradient(120deg,#ffe15d 40%,#ff8882 100%);
+            color: #333;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+        h1 {
+            text-align: center;
+            margin: 2rem 0 1rem 0;
+            font-size: 2.3rem;
+            letter-spacing: 2px;
+            color: #2c2b2b;
+        }
+        .search-bar {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        #searchinput {
+            padding: 0.7rem;
+            font-size: 1.14rem;
+            border-radius: 9px;
+            border: none;
+            width: 250px;
+            background: #fffde4;
+        }
+        #searchBtn {
+            padding: 0.7rem 1.3rem;
+            background: #ff8882;
+            color: white;
+            border: none;
+            border-radius: 9px;
+            font-size: 1.13rem;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.17);
+            transition: background 0.2s;
+        }
+        #searchBtn:hover {
+            background: #f4716a;
+        }
+        #container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            padding: 0 1.5rem 3rem 1.5rem;
+            min-height: 30vh;
+        }
+        @media (max-width: 800px) {
+            #container { grid-template-columns: repeat(3, 1fr);}
+        }
+        @media (max-width: 500px) {
+            #container { grid-template-columns: repeat(1, 1fr);}
+        }
+        .card {
+            background: #fffde4;
+            border-radius: 17px;
+            box-shadow: 0 3px 14px rgba(30,40,40,0.17);
+            overflow: hidden;
+            padding: 0;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 1rem;
+            min-height: 160px;
+        }
+        .card-image {
+            width: 50%;
+            min-height: 130px;
+            object-fit: cover;
+            border-radius: 17px 0 0 17px;
+            box-shadow: 0 2px 9px #ff888222;
+        }
+        .card-content {
+            flex: 1;
+            padding: 1.2rem 1.1rem 1.2rem .7rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.55rem;
+        }
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: .3rem;
+            color: #fa648c;
+            letter-spacing: .5px;
+        }
+        .card-info {
+            font-size: .97rem;
+            margin-bottom: .25em;
+        }
+        .habits, .size, .personality, .diet, .extra {
+            display: block;
+            font-size: .93em;
+            margin-bottom: .16em;
+            color: #bb3c2c;
+        }
+        .status {
+            font-weight: 600;
+            padding: 0.16em 0.7em;
+            border-radius: 7px;
+            background: #faebd7;
+            font-size: .86rem;
+            display: inline-block;
+            margin-bottom: .19em;
+            color: #525252;
+        }
+        .no-results, .loading, .error {
+            grid-column: 1 / -1;
+            padding: 2.5rem;
+            text-align: center;
+            font-size: 1.14rem;
+            color: #fa648c;
+            background: #fffde4;
+            border-radius: 17px;
+        }
+        .loading { color: #f4716a; }
+    </style>
+</head>
+<body>
+    <h1>Mascotas</h1>
+    <div class="search-bar">
+        <input type="text" placeholder="Buscar raza, tipo, etc..." id="searchinput">
+        <button id="searchBtn" name="searchBtn">Buscar</button>
+    </div>
+    <div id="container"></div>
+    <script src="api.js"></script>
+</body>
+</html>
